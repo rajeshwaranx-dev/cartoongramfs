@@ -100,7 +100,7 @@ PRICE5 = os.environ.get("PRICE5", "₹2850")
 # Message shown to users when they are required to join a channel or group (force subscription prompt).
 FORCE_MSG = os.environ.get("FORCE_MSG", "ʜᴇʟʟᴏ ᴛʜᴇʀᴇ {mention}!!👋\n\n<b>ɪɴ ᴏʀᴅᴇʀ ᴛᴏ ɢᴇᴛ ᴛʜᴇ ꜰɪʟᴇꜱ, ʏᴏᴜ ᴀʀᴇ ʀᴇQᴜᴇꜱᴛᴇᴅ ᴛᴏ ꜱᴜᴘᴘᴏʀᴛ ᴜꜱ ʙʏ ᴊᴏɪɴɪɴɢ ᴛʜᴇ ᴄʜᴀɴɴᴇʟꜱ ᴀɴᴅ ɢʀᴏᴜᴘꜱ ɢɪᴠᴇɴ ʙᴇʟᴏᴡ:</b>")
 # Enter a custom caption that will be auto-attached to files shared by the bot.
-CUSTOM_CAPTION = os.environ.get("CUSTOM_CAPTION", "ʙᴏᴛ ᴅᴇꜱɪɢɴᴇᴅ ᴡɪᴛʜ ❤️ ʙʏ <b>Trinity Mods</b>\n\n🌐 ɢɪᴛʜᴜʙ: https://github.com/Trinity-Mods\n\n📦 ꜱᴏᴜʀᴄᴇ ᴄᴏᴅᴇ: https://github.com/Trinity-Mods/File-Store-Bot\n\n📢 ᴛᴇʟᴇɢʀᴀᴍ: https://t.me/trinityXmods")
+CUSTOM_CAPTION = os.environ.get("CUSTOM_CAPTION", "")
 # Protect content from being forwarded or saved. Set to TRUE to enable, FALSE to disable (recommended: FALSE).
 PROTECT_CONTENT = True if os.environ.get("PROTECT_CONTENT", "FALSE") == "TRUE" else False
 # Use this option if you do not want buttons to appear on posts in the database channel.  
