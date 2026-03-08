@@ -8,12 +8,12 @@
 # 🔒 PRIVATE BOT — Creates links only. Does NOT send files to users.
 # ────────────────────────────────────────────────────────────────
 import asyncio
+import base64
 from pyrogram import filters, Client
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram.errors import FloodWait
 from bot import Bot
 from config import ADMINS, CHANNEL_ID, DISABLE_CHANNEL_BUTTON, USER_REPLY_TEXT
-from helper_func import encode
 
 
 def is_media(message: Message) -> bool:
@@ -46,10 +46,8 @@ async def channel_post(client: Client, message: Message):
         await reply_text.edit_text("Something went Wrong..!")
         return
 
-    converted_id = post_message.id * abs(client.db_channel.id)
-    string = f"get-{converted_id}"
-    base64_string = await encode(string)
-    link = f"https://t.me/{client.username}?start={base64_string}"
+    fs_param = "fs_" + base64.b64encode(str(post_message.id).encode()).decode()
+    link = f"https://t.me/{client.username}?start={fs_param}"
 
     reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("Get File", url=link)]])
     await reply_text.edit(f"<b>Here is your link :</b>\n{link}", reply_markup=reply_markup, disable_web_page_preview=True)
@@ -72,10 +70,8 @@ async def new_post(client: Client, message: Message):
 
     await asyncio.sleep(4)
 
-    converted_id = message.id * abs(client.db_channel.id)
-    string = f"get-{converted_id}"
-    base64_string = await encode(string)
-    link = f"https://t.me/{client.username}?start={base64_string}"
+    fs_param = "fs_" + base64.b64encode(str(message.id).encode()).decode()
+    link = f"https://t.me/{client.username}?start={fs_param}"
 
     reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("Get File", url=link)]])
     try:
